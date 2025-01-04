@@ -48,6 +48,7 @@ export async function POST(request: Request) {
   }
 
   try {
+    console.log("Fetching URL:", `${NEXT_PUBLIC_BASE_URL}/api/gpt-query`);
     const gptResponse = await fetch(`${NEXT_PUBLIC_BASE_URL}/api/gpt-query`, {
       method: "POST",
       headers: {
