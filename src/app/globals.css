@@ -2,20 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+	.custom-btn {
+		@apply py-4 rounded-xl font-medium inline-flex items-center justify-center tracking-tight;
+	}
+	.custom-btn-primary {
+		@apply bg-black text-white;
+	}
+	.custom-btn-text {
+		@apply text-black bg-transparent;
+	}
+	.custom-border {
+		@apply py-3 px-8 w-full md:px-36 rounded-lg font-medium tracking-tight border-2 border-[#046cec];
+	}
 }
