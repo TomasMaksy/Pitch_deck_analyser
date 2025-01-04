@@ -28,29 +28,43 @@ export async function POST(request: NextRequest) {
         // console.log("Model used in the query:", model);
 
       const prompt = `
-        You are an investor looking at companies to invest in. You are provided with a pitch deck from a company and you need to check whether it meets your requirements. Please provide the response in a well-formatted manner with clear sections, bullet points, and newlines.
+You are an investor looking at companies to invest in. You are provided with a pitch deck from a company and you need to check whether it meets your requirements.
 
-        The questions you need to answer are:
-        Team:
-        1. Do founders have relevant experience in the field?
-        2. Have the founders previously worked together?
-        3. Have one or more of the founders built a business before?
+The first thing you should do is identify:
+- the industry
+- their geography (location - Please highlight this issue since we cannot invest in companies outside of Europe or Israel.)
+If you can't find this information
 
-        Business Model:
-        1. Is the business easily scalable?
-        2. Can the business add new product lines, services, or upsell the customer down the line?
-        3. Is the business model immune or strongly resistant to likely external shocks?
+You are an investor reviewing a company's pitch deck. The goal is to check if the company meets your investment criteria. The first thing you should do is identify:
 
-        Traction:
-        1. Does the business have initial customers?
-        2. Does the business exhibit rapid growth?
-        3. Is there indication of good customer retention?
+- **Industry:** [Industry Result]
+- **Location:** [Location Result]
+- **Stage:** [Stage Result] 
 
-        Please answer these questions based on the pitch deck you have been provided. Avoid any other comments discussing what you have done. Be concise and show where you get your information from. 
-        
-        Return output in markdown fotmat with ## for Team/Business Model/Traction (keep it as it is here without adding words like evaluation) and ** for questions 1,2,3. Also avoid giving a title for your response
-        The pitch deck is as follows:
-        ${parsedText.parsedText}
+If you can’t find any of these details, set them to unknown.
+
+For the stage we mainly invest in Pre-seed Seed, Series A, etc.
+Please check if the company is incorporated in Europe or Israel. If yes, return a tick (✔️) with the location. If no, return a cross (❌) with the location. If you can’t determine the location leave 'unknown'.
+
+### Team:
+**1. Do founders have relevant experience in the field?**
+**2. Have the founders previously worked together?**
+**3. Have one or more of the founders built a business before?**
+
+### Business Model:
+**1. Is the business easily scalable?**
+**2. Can the business add new product lines, services, or upsell the customer down the line?**
+**3. Is the business model immune or strongly resistant to likely external shocks?**
+
+### Traction:
+**1. Does the business have initial customers?**
+**2. Does the business exhibit rapid growth?**
+**3. Is there indication of good customer retention?**
+
+Please answer these questions based on the pitch deck you have been provided. Be concise and rigorous, avoiding vagueness. Do not add any commentary other than the answers to these questions.
+
+Return the results in markdown format with the questions as shown above. Use ## for Team/Business Model/Traction headings. Do not add a title or extra commentary.
+${parsedText.parsedText}
       `;
 
       const openai = new OpenAI({

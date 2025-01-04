@@ -1,14 +1,24 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
+import { easeInOut, motion, useScroll, useTransform } from "framer-motion";
+
 import Image from "next/image";
 
 import cogImage from "@/app/assets/cog.png";
 import cylinderImage from "@/app/assets/cylinder.png";
 import noodleImage from "@/app/assets/noodle.png";
 import openAi from "@/app/assets/openai.webp";
+import { useRef } from "react";
 
 export const Hero = () => {
+	const heroRef = useRef(null);
+	const { scrollYProgress } = useScroll({
+		target: heroRef,
+		offset: ["start end", "end start"],
+	});
+	const translateY = useTransform(scrollYProgress, [0, 1], [200, -200]);
+
 	// Scroll function
 	const scrollToAnalysis = () => {
 		const analysisSection = document.getElementById("analysis-section");
@@ -59,26 +69,35 @@ export const Hero = () => {
 					</div>
 
 					<div className="mt-20 md:mt-0 md:h-[648px] md:flex-1 relative">
-						<Image
-							src={cogImage}
+						<motion.img
+							src={cogImage.src}
 							alt="Cog"
-							className="md:absolute md:h-full md:w-auto md:max-w-none md:-left-6"
+							className="md:absolute md:h-full md:w-auto md:max-w-none md:-left-6 lg:left-12"
+							animate={{ translateY: [60, 30] }}
+							transition={{
+								repeat: Infinity,
+								repeatType: "mirror",
+								duration: 3,
+								ease: easeInOut,
+							}}
 						/>
 
-						<Image
-							src={cylinderImage}
+						<motion.img
+							src={cylinderImage.src}
 							alt="Cylinder"
 							width={220}
 							height={220}
-							className="hidden md:block -top-16 -left-32 md:absolute"
+							className="hidden md:block -top-16 -left-24 md:absolute"
+							style={{ translateY: translateY }}
 						/>
 
-						<Image
-							src={noodleImage}
+						<motion.img
+							src={noodleImage.src}
 							alt="Noodle"
 							width={220}
 							height={220}
 							className="hidden lg:block absolute top-[620px] left-[448px] rotate-[20deg]"
+							style={{ translateY: translateY }}
 						/>
 					</div>
 				</div>

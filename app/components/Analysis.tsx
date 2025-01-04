@@ -179,7 +179,7 @@ export const Analysis = () => {
 						alt="Pyramid"
 						width={300}
 						height={300}
-						className="hidden absolute md:absolute md:block -top-0 -left-48 z-10 rotate-[32deg]"
+						className="hidden absolute md:absolute md:block -top-0 -left-48 z-10 rotate-[32deg] hover:rotate-[1deg] hover:scale-95 duration-500"
 					/>
 				</div>
 				<h2 className="text-5xl font-bold text-center pt-20 tracking-tight bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text">
@@ -301,7 +301,7 @@ export const Analysis = () => {
 						alt="Spring"
 						width={220}
 						height={220}
-						className="hidden absolute md:absolute md:block -top-16 -right-16 rotate-[-20deg] hover:scale-95 duration-500"
+						className="hidden absolute md:absolute md:block -top-16 -right-16 rotate-[-20deg] hover:scale-105 duration-500 hover:rotate-[-8deg]"
 					/>
 				</div>
 				{/* Results Section */}
