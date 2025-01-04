@@ -4,11 +4,6 @@ import PDFParser from "pdf2json";
 import { v4 as uuidv4 } from "uuid";
 const NEXT_PUBLIC_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-import { EventMap } from "pdf2json";
-
-interface CustomPDFParser extends PDFParser {
-  getRawTextContent: () => string;
-}
 
 export async function POST(request: Request) {
   const formData = await request.formData();
@@ -21,35 +16,33 @@ export async function POST(request: Request) {
   console.log("Model detected:", model);
 
   for (const [key, value] of formData.entries()) {
-    if (value instanceof File) {
+    if (value instanceof Blob) {
       const file = value as File;
       console.log("File detected:", file.name, key);
-
+      // Generate a unique file name
       const fileName = uuidv4();
       const tempFilePath = `/tmp/${fileName}.pdf`;
-
+      // Convert the uploaded file into a temporary file
       const fileBuffer = Buffer.from(await value.arrayBuffer());
       await fs.writeFile(tempFilePath, fileBuffer);
-
-      const pdfParser = new PDFParser(1) as CustomPDFParser;
-
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const pdfParser = new (PDFParser as any)(null, 1);
       const parsingPromise = new Promise<string>((resolve, reject) => {
-        pdfParser.on(
-          "pdfParser_dataError",
-          (errData: Parameters<EventMap["pdfParser_dataError"]>[0]) => {
-            console.error(errData.parserError.message);
-            reject(errData.parserError);
-          }
-        );
-
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        pdfParser.on("pdfParser_dataError", (errData: any) => {
+          console.error(errData.parserError);
+          reject(errData.parserError);
+        });
         pdfParser.on("pdfParser_dataReady", () => {
-          resolve(pdfParser.getRawTextContent());
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const parsedText = (pdfParser as any).getRawTextContent();
+          resolve(parsedText); // Resolve with parsed text
         });
       });
 
       await pdfParser.loadPDF(tempFilePath);
       const parsedText = await parsingPromise;
-
+      // console.log("Parsed text:", parsedText);
       parsedTexts.push({ fileName: file.name, parsedText });
     }
   }
