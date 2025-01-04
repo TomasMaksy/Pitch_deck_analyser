@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
     const responses: string[] = [];
 
     // Loop through each parsedText and process them
-    for (let parsedText of parsedTexts) {
+    for (const parsedText of parsedTexts) {
       
         // console.log("Parsed Text:", parsedText.parsedText);
         // console.log("Model used in the query:", model);
@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
       `;
 
       const openai = new OpenAI({
-        // apiKey: OPENAI_API_KEY,
+        apiKey: OPENAI_API_KEY,
       });
 
 

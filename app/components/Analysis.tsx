@@ -1,10 +1,11 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { X, FilePlus } from "lucide-react";
-import { Divider, Radio, RadioGroup, cn, input } from "@nextui-org/react";
+import { Divider, Radio, RadioGroup, cn } from "@nextui-org/react";
 import { RadioProps } from "@nextui-org/react";
 import { Alert } from "@nextui-org/react";
+import showdown from "showdown";
 
 import Image from "next/image";
 import pyramidImage from "@/app/assets/pyramid.png";
@@ -51,7 +52,7 @@ export const Analysis = () => {
 		[]
 	);
 	const inputRef = useRef<HTMLInputElement>(null);
-	const [typedText, setTypedText] = useState(""); // State to store the progressively revealed text
+
 	const [alert, setAlert] = useState<{
 		message: string;
 		type: "success" | "error" | null;
@@ -62,30 +63,30 @@ export const Analysis = () => {
 	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setInputValue(event.target.value); // Set the selected model
 	};
-	const showdown = require("showdown");
+
 	const converter = new showdown.Converter();
 
-	useEffect(() => {
-		// Check if there are results to display
-		if (results.length > 0) {
-			let index = 0;
+	// useEffect(() => {
+	// 	// Check if there are results to display
+	// 	if (results.length > 0) {
+	// 		const index = 0;
 
-			// Iterate through all results
-			results.forEach((result) => {
-				const currentText = result.text;
-				let textIndex = 0;
+	// 		// Iterate through all results
+	// 		results.forEach((result) => {
+	// 			const currentText = result.text;
+	// 			let textIndex = 0;
 
-				const interval = setInterval(() => {
-					setTypedText((prevText) => prevText + currentText[textIndex]);
-					textIndex++;
+	// 			const interval = setInterval(() => {
+	// 				setTypedText((prevText) => prevText + currentText[textIndex]);
+	// 				textIndex++;
 
-					if (textIndex === currentText.length) {
-						clearInterval(interval); // Stop once all text is revealed
-					}
-				}, 1); // Adjust interval for typing speed
-			});
-		}
-	}, [results]);
+	// 				if (textIndex === currentText.length) {
+	// 					clearInterval(interval); // Stop once all text is revealed
+	// 				}
+	// 			}, 1); // Adjust interval for typing speed
+	// 		});
+	// 	}
+	// }, [results]);
 
 	const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
 		e.preventDefault();
