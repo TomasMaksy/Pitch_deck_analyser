@@ -3,7 +3,7 @@ import { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   webpack(config) {
     // Find the existing rule for handling SVG files
-    const fileLoaderRule = config.module.rules.find((rule) =>
+    const fileLoaderRule = config.module.rules.find((rule: { test: { test: (arg0: string) => any; }; }) =>
       rule.test?.test?.('.svg')
     );
 

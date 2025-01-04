@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.custom-btn {
+		@apply py-3 px-3 rounded-xl font-medium inline-flex items-center justify-center tracking-tight;
+	}
+	.custom-btn-primary {
+		@apply bg-black text-white;
+	}
+	.custom-btn-text {
+		@apply text-black bg-transparent;
+	}
+	.custom-btn-hover{
+		@apply py-2 px-3 rounded-lg font-medium inline-flex items-center justify-center tracking-tight border-s border-transparent hover:outline hover:outline-2 hover:outline-gray-900/50 transition-opacity duration-400; 
+	}
+	.custom-border {
+		@apply py-3 px-8 w-full md:px-36 rounded-lg font-medium tracking-tight border-2 border-[#046cec];
+	}
+}
+
+@layer base {
+	h1 {
+	  @apply text-3xl font-bold leading-snug text-gray-900;
+	}
+	h2 {
+		@apply text-3xl font-bold leading-snug text-gray-900;
+	}
+	h3 {
+	  @apply text-3xl font-bold leading-snug text-gray-900 mt-4;
+	}
+}
