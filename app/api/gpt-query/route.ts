@@ -2,6 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
+export const maxDuration = 60;
+export const dynamic = 'force-dynamic';
+
+
 export async function POST(request: NextRequest) {
   try {
     // Log the raw request body to debug what is coming in

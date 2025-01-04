@@ -5,6 +5,9 @@ import { v4 as uuidv4 } from "uuid";
 const NEXT_PUBLIC_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 
+export const maxDuration = 60;
+export const dynamic = 'force-dynamic';
+
 export async function POST(request: Request) {
   const formData = await request.formData();
   const parsedTexts: { fileName: string; parsedText: string }[] = [];
