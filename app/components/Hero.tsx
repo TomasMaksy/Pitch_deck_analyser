@@ -31,8 +31,8 @@ export const Hero = () => {
 	};
 
 	return (
-		<section className="pt-8 pb-30 md:pt-5 md:pb-24 bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#183EC2,#EAEEFE_90%)] overflow-x-clip">
-			<div className="container mt-10">
+		<section className="pt-8 pb-30 md:pt-5 md:pb-48 bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#183EC2,#EAEEFE_90%)] overflow-x-clip">
+			<div className="container">
 				<div className="md:flex items-center pb-5">
 					<div className="md:w-[478px]">
 						<div className="text-sm inline-flex border border-[#222]/10 px-3 py-1 rounded-lg -tracking-tight">
