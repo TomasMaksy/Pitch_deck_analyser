@@ -53,7 +53,7 @@ business or a software only business, an example of a difficult to scale would b
 
    #### Traction:
    1. **Does the business have initial customers?** 0 if not mentioned, 0.5 if vaguely mention or small number of customers, 1 if good specifics are mentioned
-   2. **Does the business exhibit rapid growth?** Base your answer on specific growth metrics (e.g., GMV, ARR). Base on the deck, but also use your own knowledge of the field and industry in this specific criterion
+   2. **Does the business exhibit rapid growth?** Base your answer on specific growth metrics (e.g., GMV, ARR). Base your score on the deck, if there is no mention of growth grade 0, max 0.5 if market is new and rapidly growing.
    3. **Is there indication of good customer retention?** 0 if not mentioned, 0.5 if vaguely mentioned, 1 for good examples of why that is.
 
 3. After completing the evaluation, calculate the final score (maximum 9) and provide a detailed summary.
@@ -102,7 +102,7 @@ business or a software only business, an example of a difficult to scale would b
                <br>
               
 
-              # Final Score: [X]/9 (don't round the score calculate it exactly as you have in each criterion, unless a location or seed was a definite mismatch)
+              # Final Score: [X.Y]/9 ( Make sure that you correctly calculate the sum of point you assigned for each criterion above)
 
 5. •	For each question under each evaluation criterion, assign a score between 0 and 1:
 	•	0: the evidence directly contradicts the desired criteria.
@@ -135,7 +135,7 @@ ${parsedText.parsedText}
           },
         ],
         stream: false,
-        temperature: 0.5
+        temperature: 0.2
       });
 
     //   console.log("API Response:", response.choices[0].message.content);
