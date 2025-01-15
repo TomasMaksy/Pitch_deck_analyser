@@ -2,7 +2,7 @@
 
 _This is a nextJS web app that allows users to upload your pitch decks and have an LLM analyse them accordingly with previously defined criteria_
 
-**Overview of the web app:** youtube.com
+**Overview of the web app:** [youtube.com](https://youtu.be/clYm05hi2iM?si=F0MMmoTzZSeXfUVS)
 
 <br> 
 <br>
