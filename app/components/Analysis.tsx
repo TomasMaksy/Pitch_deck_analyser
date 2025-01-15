@@ -182,9 +182,16 @@ export const Analysis = () => {
 						className="hidden absolute md:absolute md:block -top-0 -left-48 z-10 rotate-[32deg] hover:rotate-[1deg] hover:scale-95 duration-500"
 					/>
 				</div>
-				<h2 className="text-5xl font-bold text-center pt-20 tracking-tight bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text">
-					Analyse your PDFs here
-				</h2>
+				<div className="flex flex-col items-center align-top text-center">
+					<h2 className="text-5xl font-bold text-center pt-20 tracking-tight bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text">
+						Analyse your PDFs here
+					</h2>
+					<p className="mt-6 md:mx-36">
+						Upload your pitch decks to quickly determine how well they{" "}
+						<strong>fit your investment strategy</strong> and whether they are
+						worth further consideration as <strong>potential investment</strong>{" "}
+					</p>
+				</div>
 				<div className="bg-white p-10 mt-12 mb-12 rounded-3xl mb-">
 					<div className="flex flex-col md:flex-row gap-5 w-full ">
 						{/* First div (input field container) */}
@@ -312,10 +319,10 @@ export const Analysis = () => {
 					Results
 				</h2>
 
-				<div className="bg-white p-10 mt-8 rounded-3xl mb-24 min-h-[500px] flex-col items-center justify-center z-50">
+				<div className="flex bg-white p-10 mt-8 rounded-3xl mb-24 min-h-[500px] flex-col justify-center z-50">
 					{/* Show progress bar when loading */}
 					{isLoading ? (
-						<div className="w-full m-48">
+						<div className="w-full flex items-center justify-center align-middle -mt-12">
 							<Progress
 								isIndeterminate
 								aria-label="Analysing the PDFs..."

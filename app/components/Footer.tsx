@@ -10,9 +10,9 @@ export const Footer = () => {
 					<div className="inline-flex relative before:content=[''] before:top-2 before:w-full before:bg-[linear-gradient(to_right,#F87BFF, #FB92CF, #FFDD9B, #C2F0B1, #2FD8FE)] before:absolute ">
 						<Image
 							src={Logo}
-							height={40}
+							height={30}
 							alt="Contrarian Ventures Logo"
-							className="relative"
+							className="relative opacity-80"
 						/>
 					</div>
 					<div className="flex justify-center gap-16 mt-10">
