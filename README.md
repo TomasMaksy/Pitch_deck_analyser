@@ -7,6 +7,13 @@ _This is a nextJS web app that allows users to upload your pitch decks and have 
 <br> 
 <br>
 
+### Open the deployed version of the app
+
+The app is also deployed on vercel (free plan), but that doesn't allow uploads bigger than 5MB.
+Open [https://pitch-deck-analyser.vercel.app](https://pitch-deck-analyser.vercel.app) with your browser to see the result
+
+<br>
+
 ### How to run the web app locally
 
 First clone the git directory:
@@ -31,10 +38,6 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Open the deployed version of the app
-
-The app is also deployed on vercel (free plan), but that doesn't allow uploads bigger than 5MB.
-Open [https://pitch-deck-analyser.vercel.app](https://pitch-deck-analyser.vercel.app) with your browser to see the result
 
 <br>
 
