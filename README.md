@@ -5,7 +5,6 @@ _This is a nextJS web app that allows users to upload your pitch decks and have 
 **Overview of the web app:** [youtube.com](https://youtu.be/clYm05hi2iM?si=F0MMmoTzZSeXfUVS)
 
 <br> 
-<br>
 
 ### Open the deployed version of the app
 
