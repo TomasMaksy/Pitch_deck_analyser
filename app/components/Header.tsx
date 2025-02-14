@@ -1,6 +1,6 @@
 "use client";
 
-import Logo from "@/app/assets/logo.svg";
+import Logo from "@/app/assets/clogo.png";
 
 import Image from "next/image";
 
